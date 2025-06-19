@@ -1,41 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>3D Cube Test</title>
-    <style>
-      body { margin: 0; overflow: hidden; }
-    </style>
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
-    <script>
-      const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x87ceeb); // Light blue background
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Clicker Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Cookie Clicker Knock-Off</h1>
+  <div id="cookie-area">
+    <img id="cookie" src="cookie.png" alt="cookie" />
+    <p>Cookies: <span id="cookie-count">0</span></p>
+  </div>
+  <button id="upgrade-button">Buy Cursor (10 cookies)</button>
 
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 5;
-
-      const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-
-      const geometry = new THREE.BoxGeometry();
-      const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-      const cube = new THREE.Mesh(geometry, material);
-      scene.add(cube);
-
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(1, 1, 1).normalize();
-      scene.add(light);
-
-      function animate() {
-        requestAnimationFrame(animate);
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-        renderer.render(scene, camera);
-      }
-
-      animate();
-    </script>
-  </body>
+  <script src="main.js"></script>
+</body>
 </html>
