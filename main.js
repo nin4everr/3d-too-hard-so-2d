@@ -1,26 +1,26 @@
-let cookieCount = 0;
+let pressCount = 0;
 let cursorCount = 0;
 
-const cookie = document.getElementById("cookie");
-const cookieCountDisplay = document.getElementById("cookie-count");
+const button = document.getElementById("button");
+const pressCountDisplay = document.getElementById("press-count");
 const upgradeButton = document.getElementById("upgrade-button");
 
-cookie.onclick = () => {
-  cookieCount++;
+button.onclick = () => {
+  pressCount++;
   updateDisplay();
 };
 
 upgradeButton.onclick = () => {
-  if (cookieCount >= 10) {
-    cookieCount -= 10;
+  if (pressCount >= 10) {
+    pressCount -= 10;
     cursorCount++;
     setInterval(() => {
-      cookieCount += cursorCount;
+      pressCount += cursorCount;
       updateDisplay();
     }, 1000);
   }
 };
 
 function updateDisplay() {
-  cookieCountDisplay.textContent = cookieCount;
+  pressCountDisplay.textContent = pressCount;
 }
